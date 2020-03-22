@@ -1,11 +1,11 @@
 import csv
-from collections import OrderedDict
+import datetime
 
 # ICICI-Input-Case2.csv  HDFC-Input-Case1.csv
-with open('ICICI-Input-Case2.csv', newline='') as csvFile:
+with open('HDFC-Input-Case1.csv', newline='') as csvFile:
   obj = csv.DictReader(csvFile)
   reader = csv.reader(csvFile)
-  outData = []
+  outwDate = []
   transaction = obj.fieldnames[1].split()[0]
 
   for row in reader:
@@ -21,13 +21,13 @@ with open('ICICI-Input-Case2.csv', newline='') as csvFile:
 
     if row[0] and row[0][:4] != 'Date':
       date = row[0]
-      trDes = ' '.join(row[1].split()[:-1])
-      location = row[1].split()[-1]
+      trDes = row[1]
+      location = row[1].split()[-1].lower()
     
       if transaction.capitalize() == 'International':
-        trDes = ' '.join(row[1].split()[:-2])
+        trDes = ' '.join(row[1].split()[:-1])
         currency = row[1].split()[-1]
-        location = row[1].split()[-2]
+        location = row[1].split()[-2].lower()
 
       if len(row) == 3:
         if row[2].split()[-1] == 'cr':
@@ -43,16 +43,28 @@ with open('ICICI-Input-Case2.csv', newline='') as csvFile:
         else:
           debit = row[2]
           credit = 0
+      
+      dateList = [int(_) for _ in date.split('-')]
+      dateObj = datetime.datetime(dateList[2], dateList[1], dateList[0])
+      # print(dateObj)
       outRow = (date, trDes, debit, credit, currency,
       cardName, transaction, location)
-      outData.append(outRow)
+      outwDate.append([dateObj, outRow])
 
-with open('output_case2.csv', 'w', newline='') as outFile:
+outwDate.sort(key=lambda date: date[0])
+
+with open('output_case1.csv', 'w', newline='') as outFile:
   fields = ['Date', 'Transaction Description', 'Debit',
    'Credit', 'Currency', 'Card Name', 'Transaction', 'Location']
   obj = csv.DictWriter(outFile, fieldnames=fields)
   obj.writeheader()
   writer = csv.writer(outFile)
-  for row in outData:
-    writer.writerow(row)
+  for row in outwDate:
+    writer.writerow(row[1])
+
+
+#  todos
+# [*] make all locations lowercase
+# [*] include location in trnasacDiscr
+# [] sort in order of time
 

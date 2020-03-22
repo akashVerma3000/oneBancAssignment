@@ -1,12 +1,12 @@
 Date,Transaction Description,Debit,Credit,Currency,Card Name,Transaction,Location
 12-01-2018,STIC TRAVELS PVT LTD DELHI         ,0,32256,INR,Rahul,Domestic,delhi
-13-01-2018,FLIPKART INTERNET PRIVATE BANGALORE,211687,0,INR,Rahul,Domestic,bangalore
 13-01-2018,SRILANKANUPGRADE KATUNAYAKE,6,0,EUR,Rahul,International,katunayake
+13-01-2018,FLIPKART INTERNET PRIVATE BANGALORE,211687,0,INR,Rahul,Domestic,bangalore
+14-01-2018,HEALTHGUARD LIMITED KATUNAYAKE,0,5,USD,Rahul,International,katunayake
+14-01-2018,FOOT RUB BERLIN,20,0,EUR,Rahul,International,berlin
 14-01-2018,FLEMINGO DUTY FREE Mumbai          ,18796.99,0,INR,Rahul,Domestic,mumbai
 14-01-2018,AIRTEL PAYMENT MUMBAI              ,1297,0,INR,Rahul,Domestic,mumbai
 14-01-2018,AIRTEL PAYMENT CHENNAI             ,0,902,INR,Rahul,Domestic,chennai
-14-01-2018,HEALTHGUARD LIMITED KATUNAYAKE,0,5,USD,Rahul,International,katunayake
-14-01-2018,FOOT RUB BERLIN,20,0,EUR,Rahul,International,berlin
 17-01-2018,PAYTM NOIDA                        ,165,0,INR,Ritu,Domestic,noida
 17-01-2018,BIKANERVALA GURGAON                ,325,0,INR,Ritu,Domestic,gurgaon
 19-01-2018,VFS GLOBAL SERVICES PVT MUMBAI     ,1200,0,INR,Ritu,Domestic,mumbai

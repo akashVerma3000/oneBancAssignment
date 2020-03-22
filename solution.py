@@ -2,7 +2,7 @@ import csv
 import datetime
 
 # ICICI-Input-Case2.csv  HDFC-Input-Case1.csv
-with open('HDFC-Input-Case1.csv', newline='') as csvFile:
+with open('ICICI-Input-Case2.csv', newline='') as csvFile:
   obj = csv.DictReader(csvFile)
   reader = csv.reader(csvFile)
   outwDate = []
@@ -49,11 +49,15 @@ with open('HDFC-Input-Case1.csv', newline='') as csvFile:
       # print(dateObj)
       outRow = (date, trDes, debit, credit, currency,
       cardName, transaction, location)
-      outwDate.append([dateObj, outRow])
+      outwDate.append([dateObj, outRow, transaction])
 
+outwDate.sort(key=lambda date: len(date[2]), reverse=True)
 outwDate.sort(key=lambda date: date[0])
 
-with open('output_case1.csv', 'w', newline='') as outFile:
+# for row in outwDate:
+#   print(row[1])
+
+with open('output_case2.csv', 'w', newline='') as outFile:
   fields = ['Date', 'Transaction Description', 'Debit',
    'Credit', 'Currency', 'Card Name', 'Transaction', 'Location']
   obj = csv.DictWriter(outFile, fieldnames=fields)
